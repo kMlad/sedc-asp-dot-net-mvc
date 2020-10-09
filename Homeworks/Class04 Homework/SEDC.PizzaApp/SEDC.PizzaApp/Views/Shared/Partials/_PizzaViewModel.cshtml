@@ -1,0 +1,15 @@
+﻿@model PizzaViewModel
+
+
+
+<h3>@($"Pizza no.{Model.Id}:")</h3>
+<ul>
+    <li>@Model.Name</li>
+    <li>@Model.PizzaSize</li>
+    <li>@Model.Price</li>
+    @if (Model.IsOnPromotion)
+    {
+        <li>@Model.Name is on promotion this week! -20% if ordered online!</li>
+    }
+</ul>
+
