@@ -1,0 +1,19 @@
+﻿@model PizzaViewModel
+
+<h3>Are you sure that you want to delete the following order:</h3>
+<hr />
+
+<h4>Pizza: @Model.Name</h4>
+<ul>
+    <li>Size: @Model.Size</li>
+    <li>Price: @Model.Price</li>
+    @if(@Model.IsOnSale)
+    {
+    <li>ON SALE!!</li>
+    }
+</ul>
+
+<hr />
+
+<a asp-action="ConfirmDelete" class="btn btn-default" asp-route-id="@Model.Id">Confirm Delete</a>
+

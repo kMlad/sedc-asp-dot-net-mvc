@@ -1,0 +1,27 @@
+﻿@model IEnumerable<PizzaViewModel>
+
+<h2>List of Pizzas</h2>
+<h3>Today, we have @Model.Count() pizzas available on the menu!</h3>
+<a asp-action="CreatePizza">Add a Pizza</a>
+<hr />
+
+@foreach (PizzaViewModel pizza in Model)
+{
+    <h4>@pizza.Name</h4>
+    <ul>
+
+        <li>Size: @pizza.Size</li>
+        <li>Price: @pizza.Price</li>
+        @if (pizza.IsOnSale)
+        {
+            <li>ON SALE!</li>
+        }
+    </ul>
+    <span>
+        <a asp-action="EditPizza" asp-route-id="@pizza.Id">Edit Pizza</a>
+        <br />
+        <a asp-action="DeletePizza" asp-route-id="@pizza.Id">Delete Pizza</a>
+    </span>
+    <hr />
+}
+
